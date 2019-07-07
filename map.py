@@ -43,6 +43,9 @@ for lt, ln, el, name in zip(lat, lon, elev, name):
     iframe = folium.IFrame(html=html % (name, name, el), width=200, height=100)
     fg.add_child(folium.CircleMarker(location=[lt, ln], radius = 6, popup=folium.Popup(iframe), fill_color=color_maker(el), color = 'grey', fill_opacity=0.7))
 
+# Geojson data for Polygon Layer
+fg.add_child(folium.GeoJson(data=(open('src/world.json', 'r', encoding='utf-8').read())))
+
 # Adding the Marks
 map.add_child(fg)
 
