@@ -44,7 +44,7 @@ for lt, ln, el, name in zip(lat, lon, elev, name):
     fg.add_child(folium.CircleMarker(location=[lt, ln], radius = 6, popup=folium.Popup(iframe), fill_color=color_maker(el), color = 'grey', fill_opacity=0.7))
 
 # Geojson data for Polygon Layer
-fg.add_child(folium.GeoJson(data=(open('src/world.json', 'r', encoding='utf-8').read())))
+fg.add_child(folium.GeoJson(data=open('src/world.json', 'r', encoding='utf-8').read(), style_function=lambda x: {'fillColor':'yellow' if x['properties']['POP2005'] < 10000000 else 'orange' if 10000000 <= x['properties']['POP2005'] < 20000000 else 'red'}))
 
 # Adding the Marks
 map.add_child(fg)
