@@ -1,5 +1,5 @@
 # Libraries #
-import folium, pandas
+import folium, pandas, requests
 
 # Map Variables #
 coordinations = [[38.58, -99.09], [39.2, -97.1]]
@@ -10,6 +10,7 @@ startTile = "Stamen Terrain"
 data = pandas.read_csv("src/Volcanoes.txt")
 lat = list(data["LAT"])
 lon = list(data["LON"])
+elev = list(data["ELEV"])
 
 # Start Program #
 
@@ -20,8 +21,8 @@ map = folium.Map(location=coordinations[0], zoom_start=startZoom, tile=startTile
 fg = folium.FeatureGroup(name="My Map")
 
 # Creating the Marks
-for lt, ln in zip(lat, lon):
-    fg.add_child(folium.Marker(location=[lt, ln], popup="This is a Marker", icon=folium.Icon(color='green')))
+for lt, ln, el in zip(lat, lon, elev):
+    fg.add_child(folium.Marker(location=[lt, ln], popup=el, icon=folium.Icon(color='green')))
 
 # Adding the Marks
 map.add_child(fg)
