@@ -21,6 +21,15 @@ html = """
 Height: %s m
 """
 
+# Functions #
+def color_maker(el): # make colors dynamic according to the elevation
+    if el < 1000:
+        return 'green'
+    elif 1000 <= el < 3000:
+        return 'orange'
+    else:
+        return 'red'
+
 # Start Program #
 
 # Creating Map
@@ -32,7 +41,7 @@ fg = folium.FeatureGroup(name="My Map")
 # Creating the Marks
 for lt, ln, el, name in zip(lat, lon, elev, name):
     iframe = folium.IFrame(html=html % (name, name, el), width=200, height=100)
-    fg.add_child(folium.Marker(location=[lt, ln], popup=folium.Popup(iframe), icon=folium.Icon(color='green')))
+    fg.add_child(folium.CircleMarker(location=[lt, ln], radius = 6, popup=folium.Popup(iframe), fill_color=color_maker(el), color = 'grey', fill_opacity=0.7))
 
 # Adding the Marks
 map.add_child(fg)
