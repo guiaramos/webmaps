@@ -1,5 +1,5 @@
 # Libraries #
-import folium, pandas, requests
+import folium, pandas
 
 # Map Variables #
 coordinations = [[38.58, -99.09], [39.2, -97.1]]
@@ -36,18 +36,25 @@ def color_maker(el): # make colors dynamic according to the elevation
 map = folium.Map(location=coordinations[0], zoom_start=startZoom, tile=startTile)
 
 # Defining Group for the map
-fg = folium.FeatureGroup(name="My Map")
+fgv = folium.FeatureGroup(name="Volcanos")
+fgp = folium.FeatureGroup(name="Population")
 
 # Creating the Marks
 for lt, ln, el, name in zip(lat, lon, elev, name):
+
     iframe = folium.IFrame(html=html % (name, name, el), width=200, height=100)
-    fg.add_child(folium.CircleMarker(location=[lt, ln], radius = 6, popup=folium.Popup(iframe), fill_color=color_maker(el), color = 'grey', fill_opacity=0.7))
+
+    fgv.add_child(folium.CircleMarker(location=[lt, ln], radius = 6, popup=folium.Popup(iframe), fill_color=color_maker(el), color = 'grey', fill_opacity=0.7))
 
 # Geojson data for Polygon Layer
-fg.add_child(folium.GeoJson(data=open('src/world.json', 'r', encoding='utf-8').read(), style_function=lambda x: {'fillColor':'yellow' if x['properties']['POP2005'] < 10000000 else 'orange' if 10000000 <= x['properties']['POP2005'] < 20000000 else 'red'}))
+fgp.add_child(folium.GeoJson(data=open('src/world.json', 'r', encoding='utf-8-sig').read(), style_function=lambda x: {'fillColor':'yellow' if x['properties']['POP2005'] < 10000000 else 'orange' if 10000000 <= x['properties']['POP2005'] < 20000000 else 'red'}))
 
-# Adding the Marks
-map.add_child(fg)
+# Adding the Layers
+map.add_child(fgv)
+map.add_child(fgp)
+
+# Layer Control
+map.add_child(folium.LayerControl())
 
 # Creating HTML
 map.save("Map_html_popup_simple.html")
