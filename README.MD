@@ -37,9 +37,6 @@
 * [Getting Started](#getting-started)
   * [Prerequisites](#prerequisites)
   * [Installation](#installation)
-* [Usage](#usage)
-* [Contributing](#contributing)
-* [License](#license)
 * [Contact](#contact)
 
 
@@ -127,9 +124,9 @@ webmaps\Map_html_popup_simple.html
 git clone https://github.com/guiaramos/webmaps.git
 ```
 
-
 <!-- CONTACT -->
 ## Contact
+___
 
 [![Gui][Gui-shield]][Gui-url]
 [![LinkedIn][linkedin-shield]][linkedin-url]
