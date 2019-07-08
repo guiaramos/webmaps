@@ -44,7 +44,8 @@
 
 
 <!-- ABOUT THE PROJECT -->
-## About The Project
+## **About The Project**
+___
 
 ![webmaps-volcanoes][product-screenshot]
 
@@ -53,7 +54,7 @@ This is a program in Python that creats a HTML file with Folium and Pandas conta
     * Markers: Vulcanoes in USA;
     * Polygon: Population by country in the World.
 
-The markers are based on TXT file with the information of the location and the name of each Volcano, also it has a link for the Volcano information on Google. It colors are defined according the height level, as follows:
+The markers are based on CSV file with the information of the location and the name of each Volcano, also it has a link for the Volcano information on Google. It colors are defined according the height level, as follows:
 ```
     if Height < 1K:
         Color = 'green'
@@ -74,33 +75,50 @@ The polygon layer are referred to the population by each country, based on JSON 
         Color = 'red'
 ```
 
-### Built With
+## Built With
+___
 This is the list of the tech stack:
 
 
-#### Code editor
+#### __Code editor__
 [![VS Code][VSCode-shield]][VScode-url]
 
+#### ___Front-End___
+[![HTML][HTML-shield]][HTML-url]
 
-#### Back-End
+#### ___Back-End___
 [![Python][Python-shield]][Python-url]
+
+#### ___Library___
+[![Folium][Folium-shield]][Folium-url]
+[![Pandas][Pandas-shield]][Pandas-url]
+
+##### ___Database___
 [![Json][Json-shield]][Json-url]
+[![TXT][TXT-shield]][TXT-url]
 
 
 <!-- GETTING STARTED -->
 ## Getting Started
+___
 
 To get a local copy up and running just follow the [Prerequisites](#prerequisites).
 
-Excute the program and then enter the desired word:
+#### Excute the program:
 ```sh
-Please, inform the word: USA
+python3 webmaps\map.py
+```
+#### Open the file:
+```
+webmaps\Map_html_popup_simple.html
 ```
 
 
 ### Prerequisites
 * Python 3
-* Visual Code Studio
+    * Folium
+    * Pandas
+
 
 ### Installation
 
@@ -108,11 +126,7 @@ Please, inform the word: USA
 ```sh
 git clone https://github.com/guiaramos/webmaps.git
 ```
-2. Open the terminal/CMD
-3. Enter
-```sh
-python3 dictionary.py
-```
+
 
 <!-- CONTACT -->
 ## Contact
@@ -131,13 +145,20 @@ python3 dictionary.py
 [license-shield]: https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=flat-square&logo=linkedin&colorB=555
 [linkedin-url]: https://www.linkedin.com/in/guilhermearamos/
-[product-screenshot]: https://github.com/guiaramos/webmaps/tree/master/src/project.png
-[VSCode-shield]:https://img.shields.io/badge/-Visual%20Studio%20Code-blue.svg?logo=visual-studio-code
+[product-screenshot]: src/project.png
+[VSCode-shield]:https://img.shields.io/badge/-Visual%20Studio%20Code-lightgrey.svg?logo=visual-studio-code
 [VScode-url]:https://code.visualstudio.com/docs
-[Python-shield]:https://img.shields.io/badge/-Python-blueviolet.svg?logo=Python
+[Python-shield]:https://img.shields.io/badge/-Python-9cf.svg?logo=Python
 [Python-url]:https://docs.python.org/3/
-[Json-shield]:https://img.shields.io/badge/-JSON-blueviolet.svg?logo=JSON
+[Json-shield]:https://img.shields.io/badge/-JSON-yellow.svg?logo=JSON
 [Json-url]:https://www.json.org/
 [Gui-shield]:https://img.shields.io/badge/Guilherme%20Ramos-e--Mail-lightgrey.svg
 [Gui-url]:gui_aramos@outlook.com
-
+[HTML-shield]:https://img.shields.io/badge/-HTML-blue.svg?logo=HTML5
+[HTML-url]:https://www.w3schools.com/html/html5_intro.asp
+[TXT-shield]:https://img.shields.io/badge/-TXT-yellow.svg?logo=sublime-text
+[TXT-url]: https://en.wikipedia.org/wiki/Comma-separated_values
+[Folium-shield]:https://img.shields.io/badge/-Folium-green.svg?logo=Python
+[Folium-url]:https://pypi.org/project/folium/
+[Pandas-shield]:https://img.shields.io/badge/-Pandas-green.svg?logo=Python
+[Pandas-url]:https://pandas.pydata.org/
